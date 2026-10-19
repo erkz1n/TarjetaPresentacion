@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentino Gálvez — Desarrollador Web</title>
+    <link rel="stylesheet" href="estilos.css?v=minimal_v2">
+</head>
+
+<body>
+    <!-- Escenario central -->
+    <main class="tarjeta-escenario">
+        <div class="cyber-console-wrapper" id="cyberConsole">
+
+            <!-- ============================================================
+                 ALA LATERAL IZQUIERDA: DESPLEGABLE LINKEDIN QR
+                 ============================================================ -->
+            <aside class="cyber-drawer drawer-left" id="drawerLinkedin" aria-label="Módulo LinkedIn QR">
+                <!-- Pestaña lateral -->
+                <button class="drawer-trigger trigger-left" id="btnTriggerLinkedin"
+                    aria-label="Abrir o fijar código QR de LinkedIn"
+                    title="Pasa por encima o haz click para ver el QR de LinkedIn">
+                    <span class="trigger-icon">📱</span>
+                    <span class="trigger-label">LinkedIn QR</span>
+                    <span class="trigger-chevron">◀</span>
+                </button>
+
+                <!-- Panel Desplegable Izquierdo -->
+                <div class="drawer-content drawer-content-left">
+                    <div class="drawer-header">
+                        <span class="drawer-badge">Perfil Profesional</span>
+                        <button class="drawer-close-btn" id="btnCloseLinkedin" aria-label="Cerrar panel">✕</button>
+                    </div>
+
+                    <h3 class="drawer-title">LinkedIn</h3>
+                    <p class="drawer-desc">Escanea este código con la cámara de tu móvil para conectar directamente.</p>
+
+                    <!-- Marco minimalista del QR -->
+                    <div class="qr-frame">
+                        <img src="linkedin_qr.svg" alt="Código QR de LinkedIn de Valentino Gálvez" class="qr-image"
+                            width="200" height="200">
+                    </div>
+
+                    <div class="qr-meta-info">
+                        <span class="qr-id">@valentinogalvez</span>
+                        <span class="qr-target-url">linkedin.com/in/valentinogalvez</span>
+                    </div>
+
+                    <a class="drawer-action-btn" href="https://www.linkedin.com/in/valentinogalvez" target="_blank"
+                        rel="noopener noreferrer">
+                        <span>Ver perfil en LinkedIn ↗</span>
+                    </a>
+                </div>
+            </aside>
+
+            <!-- ============================================================
+                 TARJETA PRINCIPAL (ESTILO MINIMALISTA)
+                 ============================================================ -->
+            <article class="tarjeta" id="card">
+
+                <!-- Imagen superior difuminada con fondo blanco original -->
+                <div class="tarjeta-banner">
+                    <img src="perfil.png" alt="Valentino Gálvez" class="tarjeta-banner-img">
+                    <div class="tarjeta-banner-fade"></div>
+                </div>
+
+                <!-- Cabecera de la tarjeta -->
+                <header class="tarjeta-header">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Disponible para proyectos</span>
+                    </div>
+
+                    <h1 class="tarjeta-nombre">Valentino Gálvez</h1>
+                    <p class="puesto">Desarrollador Web</p>
+
+                    <div class="ubicacion">
+                        <span class="ubicacion-icono">📍</span> Madrid, España
+                    </div>
+                </header>
+
+                <p class="descripcion">
+                    Me gusta crear sitios web claros, rápidos y accesibles con arquitecturas modernas y rendimiento
+                    optimizado.
+                </p>
+
+                <!-- Sección de Habilidades -->
+                <section class="habilidades-seccion">
+                    <div class="habilidades-header">
+                        <h2 class="habilidades-titulo">Habilidades</h2>
+                    </div>
+
+                    <ul class="datos habilidades">
+                        <!-- HTML5 -->
+                        <li class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-nombre">HTML5</span>
+                                <div class="skill-meta">
+                                    <span class="estrellas">
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-mitad">★</span>
+                                    </span>
+                                    <span class="skill-score">4.5</span>
+                                </div>
+                            </div>
+                            <div class="hud-meter-wrap">
+                                <div class="hud-meter-fill" style="--level: 95%;"></div>
+                            </div>
+                        </li>
+
+                        <!-- CSS3 -->
+                        <li class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-nombre">CSS3</span>
+                                <div class="skill-meta">
+                                    <span class="estrellas">
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-vacia">★</span>
+                                    </span>
+                                    <span class="skill-score">4.0</span>
+                                </div>
+                            </div>
+                            <div class="hud-meter-wrap">
+                                <div class="hud-meter-fill" style="--level: 90%;"></div>
+                            </div>
+                        </li>
+
+                        <!-- Python -->
+                        <li class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-nombre">Python</span>
+                                <div class="skill-meta">
+                                    <span class="estrellas">
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-mitad">★</span>
+                                    </span>
+                                    <span class="skill-score">4.5</span>
+                                </div>
+                            </div>
+                            <div class="hud-meter-wrap">
+                                <div class="hud-meter-fill" style="--level: 92%;"></div>
+                            </div>
+                        </li>
+
+                        <!-- JavaScript -->
+                        <li class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-nombre">JavaScript</span>
+                                <div class="skill-meta">
+                                    <span class="estrellas">
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-llena">★</span>
+                                        <span class="star-vacia">★</span>
+                                    </span>
+                                    <span class="skill-score">4.0</span>
+                                </div>
+                            </div>
+                            <div class="hud-meter-wrap">
+                                <div class="hud-meter-fill" style="--level: 88%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Sección de Proyectos -->
+                <section class="proyectos-seccion">
+                    <h2 class="seccion-titulo">Proyectos</h2>
+                    <div class="proyectos-lista">
+                        <a href="https://yofupsa.vercel.app/" class="proyecto-link" target="_blank" rel="noopener noreferrer">
+                            <div class="proyecto-info">
+                                <span class="proyecto-nombre">Yofupsa</span>
+                                <span class="proyecto-sub">yofupsa.vercel.app</span>
+                            </div>
+                            <span class="proyecto-arrow">↗</span>
+                        </a>
+
+                        <a href="https://genflow.es/" class="proyecto-link" target="_blank" rel="noopener noreferrer">
+                            <div class="proyecto-info">
+                                <span class="proyecto-nombre">Genflow</span>
+                                <span class="proyecto-sub">genflow.es</span>
+                            </div>
+                            <span class="proyecto-arrow">↗</span>
+                        </a>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ============================================================
+                 ALA LATERAL DERECHA: DESPLEGABLE CURRICULUM VITAE
+                 ============================================================ -->
+            <aside class="cyber-drawer drawer-right" id="drawerCV" aria-label="Módulo Curriculum Vitae">
+                <!-- Pestaña lateral -->
+                <button class="drawer-trigger trigger-right" id="btnTriggerCV"
+                    aria-label="Abrir o fijar Currículum Vitae" title="Pasa por encima o haz click para ver mi CV">
+                    <span class="trigger-chevron">▶</span>
+                    <span class="trigger-label">Currículum</span>
+                    <span class="trigger-icon">📄</span>
+                </button>
+
+                <!-- Panel Desplegable Derecho -->
+                <div class="drawer-content drawer-content-right">
+                    <div class="drawer-header">
+                        <span class="drawer-badge">Currículum Vitae</span>
+                        <button class="drawer-close-btn" id="btnCloseCV" aria-label="Cerrar panel">✕</button>
+                    </div>
+
+                    <div class="cv-head-row">
+                        <div>
+                            <h3 class="drawer-title">Currículum Vitae</h3>
+                            <span class="drawer-sub">Valentino Gálvez // Presentación en Canva</span>
+                        </div>
+                        <div class="cv-actions-bar">
+                            <a class="cv-mini-btn btn-accent" id="btnOpenCV" href="https://www.canva.com/design/DAG2l55QNX0/dyM4by3vQ30kNdCeQIx4bg/view"
+                                target="_blank" rel="noopener noreferrer" title="Abrir presentación completa en Canva">
+                                <span>Abrir en Canva ↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Banner de acceso directo a Canva -->
+                    <div class="canva-portal-card">
+                        <div class="canva-portal-info">
+                            <div class="canva-portal-title">
+                                <span class="canva-badge">🎨 Canva Cloud</span>
+                                <span class="canva-portal-status">Disponible online</span>
+                            </div>
+                            <p class="canva-desc">Documento interactivo completo alojado en Canva.</p>
+                        </div>
+                        <a href="https://www.canva.com/design/DAG2l55QNX0/dyM4by3vQ30kNdCeQIx4bg/view" target="_blank" rel="noopener noreferrer" class="canva-cta-btn">
+                            <span>Ver en Canva ↗</span>
+                        </a>
+                    </div>
+
+                    <!-- Marco de visualización del documento -->
+                    <div class="cv-viewer-frame">
+                        <div class="cv-frame-header">
+                            <div class="cv-frame-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="cv-frame-address" id="cvAddressDisplay">canva.com/design/DAG2l55QNX0/view</span>
+                        </div>
+
+                        <!-- IFRAME EMBED OFICIAL DE CANVA -->
+                        <iframe class="cv-iframe" id="cvIframe"
+                            src="https://www.canva.com/design/DAG2l55QNX0/dyM4by3vQ30kNdCeQIx4bg/view?embed"
+                            allowfullscreen="allowfullscreen"
+                            allow="fullscreen"
+                            loading="lazy"
+                            title="Visualizador de Curriculum Vitae de Valentino Gálvez"></iframe>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Fondo de desenfoque al fijar con click -->
+    <div class="cyber-backdrop" id="cyberBackdrop" aria-hidden="true"></div>
+
+    <!-- Script de control interactivo: Hover + Click/Pin + Atajos de teclado + Configuración de URL -->
+    <script>
+        const MI_URL_CV = "https://www.canva.com/design/DAG2l55QNX0/dyM4by3vQ30kNdCeQIx4bg/view";
+        const CANVA_EMBED_URL = "https://www.canva.com/design/DAG2l55QNX0/dyM4by3vQ30kNdCeQIx4bg/view?embed";
+
+        (function () {
+            const drawerLinkedin = document.getElementById('drawerLinkedin');
+            const drawerCV = document.getElementById('drawerCV');
+            const btnTriggerLinkedin = document.getElementById('btnTriggerLinkedin');
+            const btnTriggerCV = document.getElementById('btnTriggerCV');
+            const btnCloseLinkedin = document.getElementById('btnCloseLinkedin');
+            const btnCloseCV = document.getElementById('btnCloseCV');
+            const backdrop = document.getElementById('cyberBackdrop');
+
+            // Función para cerrar ambos paneles
+            function closeAllDrawers() {
+                drawerLinkedin.classList.remove('is-pinned');
+                drawerCV.classList.remove('is-pinned');
+                backdrop.classList.remove('is-active');
+            }
+
+            // Alternar panel fijado al pulsar el disparador (Click)
+            btnTriggerLinkedin.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const wasPinned = drawerLinkedin.classList.contains('is-pinned');
+                closeAllDrawers();
+                if (!wasPinned) {
+                    drawerLinkedin.classList.add('is-pinned');
+                    backdrop.classList.add('is-active');
+                }
+            });
+
+            btnTriggerCV.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const wasPinned = drawerCV.classList.contains('is-pinned');
+                closeAllDrawers();
+                if (!wasPinned) {
+                    drawerCV.classList.add('is-pinned');
+                    backdrop.classList.add('is-active');
+                }
+            });
+
+            // Botones de cerrar (✕)
+            btnCloseLinkedin.addEventListener('click', function (e) {
+                e.stopPropagation();
+                drawerLinkedin.classList.remove('is-pinned');
+                if (!drawerCV.classList.contains('is-pinned')) {
+                    backdrop.classList.remove('is-active');
+                }
+            });
+
+            btnCloseCV.addEventListener('click', function (e) {
+                e.stopPropagation();
+                drawerCV.classList.remove('is-pinned');
+                if (!drawerLinkedin.classList.contains('is-pinned')) {
+                    backdrop.classList.remove('is-active');
+                }
+            });
+
+            // Cerrar al hacer click en el fondo desenfocado o fuera del panel
+            backdrop.addEventListener('click', closeAllDrawers);
+            document.addEventListener('click', function (e) {
+                if (!drawerLinkedin.contains(e.target) && !drawerCV.contains(e.target)) {
+                    closeAllDrawers();
+                }
+            });
+
+            // Cerrar con la tecla Escape
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeAllDrawers();
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

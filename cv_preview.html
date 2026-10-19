@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Valentino Gálvez</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    <style>
+        :root {
+            --bg-color: #0b0d13;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            padding: 24px 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Banner informativo */
+        .cv-notice {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 22px;
+            font-size: 12px;
+            color: #93c5fd;
+            flex-wrap: wrap;
+        }
+
+        .cv-notice a {
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* Cabecera del CV */
+        .cv-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+
+        .cv-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+            margin-bottom: 4px;
+        }
+
+        .cv-role {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .cv-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Secciones del CV */
+        .cv-section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .cv-summary {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            line-height: 1.65;
+        }
+
+        /* Bloques de experiencia y educación */
+        .timeline-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s ease;
+        }
+
+        .timeline-item:hover {
+            border-color: rgba(255, 255, 255, 0.16);
+        }
+
+        .item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .item-period {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .item-sub {
+            color: var(--accent);
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .item-desc {
+            color: var(--text-secondary);
+            font-size: 12.5px;
+            line-height: 1.5;
+        }
+
+        /* Badges de habilidades */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Idiomas */
+        .lang-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .lang-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lang-name {
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .lang-level {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Notificación con enlace oficial a Canva -->
+    <div class="cv-notice">
+        <span>Hoja de datos rápida // Presentación completa disponible en Canva</span>
+        <a href="https://www.canva.com/design/DAG2l55QNX0/dyM4by3vQ30kNdCeQIx4bg/view" target="_blank" rel="noopener noreferrer">Abrir en Canva ↗</a>
+    </div>
+
+    <!-- Cabecera -->
+    <header class="cv-header">
+        <h1 class="cv-name">Valentino Gálvez</h1>
+        <div class="cv-role">Desarrollador Web Frontend & Interfaces</div>
+        <div class="cv-meta">
+            <div>📍 Madrid, España</div>
+            <div>💼 Disponible para proyectos</div>
+        </div>
+    </header>
+
+    <!-- Perfil Profesional -->
+    <section class="cv-section">
+        <h2 class="section-title">Perfil Profesional</h2>
+        <p class="cv-summary">
+            Desarrollador web enfocado en la creación de interfaces modernas, claras, accesibles y de alto rendimiento. Especializado en arquitecturas limpias, CSS estructurado y diseño centrado en la experiencia de usuario.
+        </p>
+    </section>
+
+    <!-- Habilidades Tecnológicas -->
+    <section class="cv-section">
+        <h2 class="section-title">Stack Tecnológico</h2>
+        <div class="skills-grid">
+            <div class="skill-badge">HTML5 Semántico</div>
+            <div class="skill-badge">CSS3 / Responsive Design</div>
+            <div class="skill-badge">JavaScript (ES6+)</div>
+            <div class="skill-badge">Python</div>
+            <div class="skill-badge">Git & Control de Versiones</div>
+            <div class="skill-badge">Rendimiento & Accesibilidad</div>
+            <div class="skill-badge">UI / UX Design</div>
+        </div>
+    </section>
+
+    <!-- Experiencia y Proyectos -->
+    <section class="cv-section">
+        <h2 class="section-title">Experiencia & Proyectos</h2>
+
+        <div class="timeline-item">
+            <div class="item-head">
+                <span class="item-title">Desarrollo de Interfaces Web</span>
+                <span class="item-period">2024 - Presente</span>
+            </div>
+            <div class="item-sub">Proyectos Web & Desarrollo Frontend</div>
+            <p class="item-desc">
+                Diseño y maquetación de interfaces web modernas, componentes modulares accesibles y layouts adaptativos multidispositivo con CSS3 puro y JavaScript.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="item-head">
+                <span class="item-title">Desarrollo Web Freelance</span>
+                <span class="item-period">2023 - 2024</span>
+            </div>
+            <div class="item-sub">Soluciones Web Personalizadas</div>
+            <p class="item-desc">
+                Construcción de sitios web optimizados en velocidad, maquetación adaptativa multidispositivo y componentes interactivos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Formación -->
+    <section class="cv-section">
+        <h2 class="section-title">Formación Académica</h2>
+        <div class="timeline-item">
+            <div class="item-head">
+                <span class="item-title">Desarrollo de Aplicaciones Web / Interfaces</span>
+                <span class="item-period">En curso</span>
+            </div>
+            <div class="item-sub">Especialización en Tecnologías Frontend</div>
+            <p class="item-desc">
+                Enfoque en accesibilidad, usabilidad, desarrollo de componentes modulares y optimización web.
+            </p>
+        </div>
+    </section>
+
+    <!-- Idiomas -->
+    <section class="cv-section">
+        <h2 class="section-title">Idiomas</h2>
+        <div class="lang-list">
+            <div class="lang-card">
+                <span class="lang-name">Español</span>
+                <span class="lang-level">Nativo</span>
+            </div>
+            <div class="lang-card">
+                <span class="lang-name">Inglés</span>
+                <span class="lang-level">Profesional</span>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

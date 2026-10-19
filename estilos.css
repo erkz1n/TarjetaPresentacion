@@ -1,0 +1,1008 @@
+/* ============================================================
+   TARJETA PERSONAL - ESTILO MINIMALISTA & MODERNO
+   Valentino Gálvez - Desarrollador Web
+   ============================================================ */
+
+/* Tipografía moderna de alta legibilidad */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Variables de diseño: Paleta básica, limpia y cohesiva */
+:root {
+    --bg-canvas: #090b10;
+    --card-bg: rgba(18, 21, 30, 0.82);
+    --card-border: rgba(255, 255, 255, 0.09);
+    --card-border-hover: rgba(255, 255, 255, 0.18);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #3b82f6;          /* Azul clásico, sobrio y moderno */
+    --accent-hover: #2563eb;
+    --star-color: #f59e0b;      /* Color UNIFICADO para todas las estrellas */
+    --star-empty: rgba(255, 255, 255, 0.13);
+    --bar-fill: #3b82f6;        /* Barra de progreso uniforme para todas las habilidades */
+    --bar-track: rgba(255, 255, 255, 0.06);
+    --drawer-bg: rgba(15, 18, 26, 0.96);
+    --drawer-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Reseteo universal y estilos base de enlaces */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+html {
+    min-height: 100%;
+    background-color: var(--bg-canvas);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow-x: hidden;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-canvas);
+    /* Fondo oscuro minimalista con degradado radial ambiental muy suave */
+    background-image: radial-gradient(circle at 50% 35%, rgba(30, 41, 59, 0.32) 0%, rgba(9, 11, 16, 0.98) 100%);
+}
+
+/* ============================================================
+   CONTENEDOR CENTRAL DE LA CONSOLA
+   ============================================================ */
+
+.tarjeta-escenario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.cyber-console-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
+/* ============================================================
+   TARJETA PRINCIPAL (MINIMALISTA)
+   ============================================================ */
+
+.tarjeta {
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+    padding: 34px 30px;
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--card-border);
+    box-shadow: 
+        0 20px 45px -10px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-border-hover);
+    box-shadow: 
+        0 26px 55px -10px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================================
+   BANNER SUPERIOR CON IMAGEN DIFUMINADA
+   ============================================================ */
+
+.tarjeta-banner {
+    position: relative;
+    width: calc(100% + 60px);
+    margin: -34px -30px 18px -30px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tarjeta-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    filter: blur(1.8px);
+    opacity: 1;
+    transform: scale(1.04);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Desvanecimiento y difuminado suave hacia el cuerpo de la tarjeta */
+.tarjeta-banner-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 58%,
+        rgba(18, 21, 30, 0.45) 80%,
+        var(--card-bg) 100%);
+    pointer-events: none;
+}
+
+/* Al interactuar con la tarjeta, la foto se enfoca sutilmente */
+.tarjeta:hover .tarjeta-banner-img {
+    filter: blur(0px);
+    transform: scale(1.07);
+}
+
+/* ============================================================
+   CABECERA DE LA TARJETA
+   ============================================================ */
+
+.tarjeta-header {
+    margin-bottom: 18px;
+}
+
+/* Indicador de estado sobrio y limpio */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4ade80;
+    margin-bottom: 14px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #22c55e;
+}
+
+.tarjeta-nombre {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.puesto {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.ubicacion {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ubicacion-icono {
+    font-size: 0.9rem;
+}
+
+/* Descripción */
+.descripcion {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+/* ============================================================
+   SECCIÓN DE HABILIDADES
+   ============================================================ */
+
+.habilidades-seccion {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 20px;
+}
+
+.habilidades-titulo {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.datos.habilidades {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    padding: 12px 14px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.skill-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.skill-nombre {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skill-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================================
+   BARRA DE ESTRELLAS: TODAS DEL MISMO COLOR UNIFICADO
+   ============================================================ */
+
+.estrellas {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.92rem;
+    line-height: 1;
+}
+
+/* Estrella llena: color uniforme básico */
+.star-llena {
+    color: var(--star-color);
+}
+
+/* Estrella vacía: opacidad uniforme */
+.star-vacia {
+    color: var(--star-empty);
+}
+
+/* Estrella media: división exacta con el mismo color */
+.star-mitad {
+    position: relative;
+    display: inline-block;
+    color: var(--star-empty);
+    line-height: 1;
+}
+
+.star-mitad::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--star-color);
+}
+
+.skill-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Barra de progreso minimalista (mismo color en todas) */
+.hud-meter-wrap {
+    width: 100%;
+    height: 6px;
+    background: var(--bar-track);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.hud-meter-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--bar-fill);
+    width: var(--level);
+    transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ============================================================
+   SECCIÓN DE PROYECTOS & ENLACES INTERACTIVOS
+   ============================================================ */
+
+.proyectos-seccion {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.seccion-titulo {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.proyectos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.proyecto-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.proyecto-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.proyecto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.proyecto-nombre {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.proyecto-link:hover .proyecto-nombre {
+    color: #93c5fd;
+}
+
+.proyecto-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.proyecto-link:hover .proyecto-sub {
+    color: var(--text-secondary);
+}
+
+.proyecto-arrow {
+    font-size: 0.95rem;
+    color: var(--accent);
+    transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.proyecto-link:hover .proyecto-arrow {
+    transform: translate(3px, -3px);
+    color: #93c5fd;
+}
+
+/* ============================================================
+   MÓDULOS DESPLEGABLES LATERALES (MINIMALISTAS)
+   Izquierda: LinkedIn QR | Derecha: Currículum Vitae (CV)
+   Expandibles por HOVER y por CLICK
+   ============================================================ */
+
+.cyber-drawer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+}
+
+/* Ala izquierda */
+.drawer-left {
+    right: calc(100% - 6px);
+    flex-direction: row-reverse;
+}
+
+/* Ala derecha */
+.drawer-right {
+    left: calc(100% - 6px);
+    flex-direction: row;
+}
+
+/* PESTAÑAS / DISPARADORES MINIMALISTAS */
+.drawer-trigger {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 8px;
+    background: rgba(18, 22, 31, 0.94);
+    border: 1px solid var(--card-border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+.trigger-left {
+    border-radius: 12px 0 0 12px;
+}
+
+.trigger-right {
+    border-radius: 0 12px 12px 0;
+}
+
+.trigger-icon {
+    font-size: 1.05rem;
+}
+
+.trigger-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    letter-spacing: 1px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+.trigger-chevron {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hover en disparadores */
+.cyber-drawer:hover .drawer-trigger,
+.cyber-drawer.is-pinned .drawer-trigger {
+    background: rgba(26, 32, 45, 0.98);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.drawer-left:hover .trigger-chevron,
+.drawer-left.is-pinned .trigger-chevron {
+    transform: translateX(-3px);
+    opacity: 1;
+}
+
+.drawer-right:hover .trigger-chevron,
+.drawer-right.is-pinned .trigger-chevron {
+    transform: translateX(3px);
+    opacity: 1;
+}
+
+/* CONTENEDOR DESPLEGABLE */
+.drawer-content {
+    position: relative;
+    z-index: 4;
+    background: var(--drawer-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--drawer-border);
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+
+    /* Estado colapsado */
+    max-width: 0;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    padding: 0;
+    transition: 
+        max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.3s ease,
+        padding 0.35s ease,
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-content-left {
+    transform-origin: right center;
+    transform: scale(0.95) translateX(15px);
+}
+
+.drawer-content-right {
+    transform-origin: left center;
+    transform: scale(0.95) translateX(-15px);
+}
+
+/* EXPANSIÓN POR HOVER O CLICK (.is-pinned) */
+.drawer-left:hover .drawer-content-left,
+.drawer-left.is-pinned .drawer-content-left {
+    max-width: 360px;
+    width: 310px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 22px 20px;
+    transform: scale(1) translateX(0);
+    margin-right: 12px;
+}
+
+.drawer-right:hover .drawer-content-right,
+.drawer-right.is-pinned .drawer-content-right {
+    max-width: 560px;
+    width: 480px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 22px 20px;
+    transform: scale(1) translateX(0);
+    margin-left: 12px;
+}
+
+/* Cabecera del panel desplegable */
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.drawer-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.drawer-close-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.drawer-close-btn:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.drawer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.drawer-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin-bottom: 16px;
+}
+
+/* ============================================================
+   PANEL IZQUIERDO: QR LINKEDIN
+   ============================================================ */
+
+.qr-frame {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto 16px auto;
+    padding: 12px;
+    background: #10131c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-image {
+    width: 100%;
+    height: auto;
+    max-width: 180px;
+    display: block;
+    border-radius: 6px;
+}
+
+.qr-meta-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.qr-id {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.qr-target-url {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.drawer-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 14px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--accent);
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.drawer-action-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   PANEL DERECHO: CURRÍCULUM VITAE
+   ============================================================ */
+
+.cv-head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.drawer-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cv-actions-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cv-mini-btn {
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.cv-mini-btn:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.cv-mini-btn.active {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--accent);
+    color: #ffffff;
+}
+
+.cv-mini-btn.btn-accent {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+.cv-mini-btn.btn-accent:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+/* Banner Portal de Canva */
+.canva-portal-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.canva-portal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.canva-portal-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.canva-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #60a5fa;
+    background: rgba(59, 130, 246, 0.15);
+    padding: 2px 7px;
+    border-radius: 5px;
+}
+
+.canva-portal-status {
+    font-size: 0.72rem;
+    color: #4ade80;
+    font-weight: 500;
+}
+
+.canva-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.canva-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: #ffffff !important;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.canva-cta-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Marco visor del CV */
+.cv-viewer-frame {
+    width: 100%;
+    background: #0b0d13;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cv-frame-header {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cv-frame-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.cv-frame-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.cv-frame-dots .dot.red { background: #ef4444; }
+.cv-frame-dots .dot.yellow { background: #eab308; }
+.cv-frame-dots .dot.green { background: #22c55e; }
+
+.cv-frame-address {
+    flex: 1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.35);
+    padding: 3px 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cv-iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+    display: block;
+    background-color: #0b0d13;
+}
+
+/* ============================================================
+   FONDO DE DESENFOQUE
+   ============================================================ */
+
+.cyber-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 30;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.cyber-backdrop.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ============================================================
+   RESPONSIVIDAD
+   ============================================================ */
+
+@media (max-width: 1120px) {
+    .drawer-left:hover .drawer-content-left,
+    .drawer-left.is-pinned .drawer-content-left {
+        width: 290px;
+    }
+
+    .drawer-right:hover .drawer-content-right,
+    .drawer-right.is-pinned .drawer-content-right {
+        width: 380px;
+    }
+
+    .cv-iframe {
+        height: 380px;
+    }
+}
+
+@media (max-width: 920px) {
+    .cyber-console-wrapper {
+        flex-direction: column;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .cyber-drawer {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-bottom: 12px;
+        flex-direction: column !important;
+    }
+
+    .drawer-left {
+        order: 2;
+        margin-top: 12px;
+        margin-bottom: 0;
+    }
+
+    .drawer-right {
+        order: 3;
+        margin-top: 12px;
+    }
+
+    .tarjeta {
+        order: 1;
+    }
+
+    .drawer-trigger {
+        width: 100%;
+        flex-direction: row !important;
+        border-radius: 10px !important;
+        padding: 12px 16px;
+    }
+
+    .trigger-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+
+    .drawer-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 10px 0 0 0 !important;
+        transform: none !important;
+    }
+
+    .drawer-left:hover .drawer-content-left,
+    .drawer-left.is-pinned .drawer-content-left,
+    .drawer-right:hover .drawer-content-right,
+    .drawer-right.is-pinned .drawer-content-right {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 10px 0 0 0 !important;
+    }
+
+    .cv-iframe {
+        height: 340px;
+    }
+}
